@@ -33,10 +33,15 @@ public:
     bool isCommitted(long xid);
     bool isAborted(long xid);
     static TransactionManager create(std::string path);
+    static TransactionManager open(std::string path);
 
     void updateXID(long xid, unsigned char active);
 
     long getXidPosition(long xid);
+
+    bool checkStatus(long xid, unsigned char status);
+
+    void incrXIDCounter();
 };
 
 
