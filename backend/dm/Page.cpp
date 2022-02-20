@@ -13,7 +13,7 @@ void Page::unlock() {
 }
 
 void Page::release() {
-
+    pageCache.release(this);
 }
 
 Page::Page(int pageNo, unsigned char *initData, PageCache *pageCache) {
