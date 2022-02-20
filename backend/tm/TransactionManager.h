@@ -32,8 +32,8 @@ public:
     bool isActive(long xid);
     bool isCommitted(long xid);
     bool isAborted(long xid);
-    static TransactionManager create(std::string path);
-    static TransactionManager open(std::string path);
+    static TransactionManager* create(std::string path);
+    static TransactionManager* open(std::string path);
 
     void updateXID(long xid, unsigned char active);
 

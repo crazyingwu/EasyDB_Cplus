@@ -4,16 +4,19 @@
 
 #include "TransactionManager.h"
 
-TransactionManager TransactionManager::create(std::string path) {
+TransactionManager* TransactionManager::create(std::string path) {
     // 1、根据path创建文件
 
     // 2、写入空文件头，即0
+
+    return new TransactionManager();
 }
 
-TransactionManager TransactionManager::open(std::string path) {
+TransactionManager* TransactionManager::open(std::string path) {
     // 1、根据path打开文件
 
     // 2、检验文件的合法性，用文件头和文件实际长度做比较
+    return new TransactionManager();
 }
 
 long TransactionManager::begin() {
