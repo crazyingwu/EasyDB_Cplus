@@ -18,7 +18,7 @@ private:
     std::mutex fileLock;
 public:
     int newPage(unsigned char* initData);
-    Page getPage();
+    Page getPage(int pgno);
     void close();
     void release(Page page);
     // 按照给定的页号，把后面的页全部截断丢弃，TODO 弄懂他有什么作用

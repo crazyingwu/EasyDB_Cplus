@@ -18,10 +18,18 @@
  * [Size] [Checksum] [Data]
  * Size 4字节int 标识Data长度
  * Checksum 4字节int
+ *
+ * 日志的具体内容如下：
+ * insertLog
+ * [LogType] [XID] [Pgno] [Offset] [Raw]
+ *
+ * updateLog
+ * [LogType] [XID] [UID] [OldRwa] [NewRaw]
  */
 class Logger{
 private:
 
+public:
     /*
      * 创建日志文件
      * 头部XChecksum位置写0

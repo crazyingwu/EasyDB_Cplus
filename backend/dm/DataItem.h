@@ -51,6 +51,9 @@ public:
     unsigned char* getRaw();
     unsigned char* getOldRaw();
 
+    //设置一个DataItem数据无效
+    static void setDataItemRawInvalid(unsigned char* raw);
+
 
 };
 
