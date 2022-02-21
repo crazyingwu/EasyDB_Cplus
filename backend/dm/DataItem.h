@@ -8,6 +8,12 @@
 
 #include "Page.h"
 
+/**
+ * dataItem 结构如下：
+ * [ValidFlag] [DataSize] [Data]
+ * ValidFlag 1字节，0为合法，1为非法
+ * DataSize  2字节，标识Data的长度
+ */
 class DataItem {
 private:
     unsigned char* raw;
@@ -15,7 +21,7 @@ private:
     long uid;
     Page* pg;
 public:
-    // 拿到DataItem的具体数据
+    // 拿到DataItem的具体数据，具体来说就是从raw中偏移前3个字节，读取剩余的全部数据
     unsigned char* data();
 
     // 此函数需要在修改dataItem之前调用，函数将老数据备份到oldRaw当中去
@@ -37,6 +43,10 @@ public:
 
     //返回当前所在page，这里的page是在构造函数当中传入的
     Page* page();
+
+
+    // 通过读取第一个字节（标识位），来判断当前数据是否有效
+    bool isValid();
 
     unsigned char* getRaw();
     unsigned char* getOldRaw();
