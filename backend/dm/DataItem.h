@@ -38,6 +38,7 @@ public:
      * 1.dataItem也有缓存，在dataManager当中，dataManager实现了AbstractCache类
      * 2.dataManager当中的数据单元就是dataItem，读取数据时，如果缓存没命中，就是从page当中去加载
      * 3.加载的uid有一套规则，因为我们需要通过一个key，同时得到页号和偏移，所以key中需要这两个信息
+     * 前8个字节是页号，后8个字节是页内偏移
      * */
     void release();
 
